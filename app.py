@@ -43,11 +43,11 @@ if result != 0:
     friend_dialogue = st.text_input(label="How are you feeling now ?")
     if st.button('Submit'):    
         print(friend_dialogue)
-        pt = PromptTemplate(template=prompt, input_variables=st.secrets["input_variables"])
+        pt = PromptTemplate(template=prompt, input_variables=["weather_desc","temp","humidity", "friend_dialogue"])
         human_message_prompt = HumanMessagePromptTemplate(prompt=pt)
         chat_prompt_template = ChatPromptTemplate.from_messages([human_message_prompt])
         chat = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.9)
         chain = LLMChain(llm=chat, prompt=chat_prompt_template)
 
-        chat_response = chain.run(st.secrets["chain_input"])
+        chat_response = chain.run({"weather_desc":weather_desc,"temp":temp,"humidity":humidity,"friend_dialogue":friend_dialogue})
         st.markdown(chat_response)
