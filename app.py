@@ -13,8 +13,8 @@ from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import ChatPromptTemplate, HumanMessagePromptTemplate
 
-openai.api_key = st.secrets["openaikey"]
-weatherapikey = st.secrets["weather-api-key"]
+openai.api_key = st.secrets["credentials"]]["openaikey"]
+weatherapikey = st.secrets["credentials"]["weather-api-key"]
 
 os.environ['OPENAI_API_KEY'] = openai.api_key
 
@@ -39,7 +39,7 @@ if result != 0:
     weather_desc = response['weather'][0]['description']    
     temp = response['main']['temp']
     humidity = response['main']['humidity']
-    prompt = st.secrets["prompt"]
+    prompt = st.secrets["credentials"]["prompt"]
     friend_dialogue = st.text_input(label="How are you feeling now ?")
     if st.button('Submit'):    
         print(friend_dialogue)
