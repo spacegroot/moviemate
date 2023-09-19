@@ -4,6 +4,11 @@
 
 ![alt text](https://github.com/spacegroot/moviemate/blob/main/simpsons_cinema.jpg)
 
+### Setup
+1 . `git clone https://github.com/spacegroot/moviemate.git`
+2 . `pip install -r requirements.txt`
+After this step you need to setup your credentials and prompt
+3 . `streamlit run app.py`
 
 
 
