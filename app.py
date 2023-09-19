@@ -14,7 +14,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import ChatPromptTemplate, HumanMessagePromptTemplate
 
 openai.api_key = st.secrets["credentials"]["openaikey"]
-weatherapikey = st.secrets["credentials"]["weather-api-key"]
+weatherapikey = st.secrets["credentials"]["weatherapikey"]
 
 os.environ['OPENAI_API_KEY'] = openai.api_key
 
